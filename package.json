@@ -1,0 +1,23 @@
+{
+  "name": "anchorscroller",
+  "version": "1.0.0",
+  "description": "Scrolls page to the target of an anchor link",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/msorensson/anchorscroller.git"
+  },
+  "author": "Martin Sörensson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msorensson/anchorscroller/issues"
+  },
+  "homepage": "https://github.com/msorensson/anchorscroller#readme",
+  "dependencies": {
+    "lodash": "^4.14.1",
+    "scrollingelement": "^1.5.1"
+  }
+}
