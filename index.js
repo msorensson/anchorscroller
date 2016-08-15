@@ -75,6 +75,7 @@ var linearEasing = function (t, b, c, d) {
 var defaultOptions = {
     duration: 400,
     distance: 400,
+    offset: 0,
     easingEquation: linearEasing
 };
 
@@ -110,7 +111,7 @@ function anchorScroller(els, opts) {
 
     var initializeScroll = function(e) {
         target = getTargetElement(this);
-        targetScrollTop = getElementScrollTop(target);
+        targetScrollTop = getElementScrollTop(target) + options.offset;
         direction = getDirection(scrollingElement.scrollTop, targetScrollTop);
         offsetScrollTop = targetScrollTop - (options.distance * direction);
 
