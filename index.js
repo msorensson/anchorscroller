@@ -73,15 +73,15 @@ var linearEasing = function (t, b, c, d) {
 };
 
 var defaultOptions = {
-    scrollDuration: 400,
-    scrollOffset: 400,
+    duration: 400,
+    distance: 400,
     easingEquation: linearEasing
 };
 
 function anchorScroller(els, opts) {
 
     var options = assign(defaultOptions, opts),
-        frames = getFramesByDuration(options.scrollDuration, 60),
+        frames = getFramesByDuration(options.duration, 60),
 
         target,
         offsetScrollTop,
@@ -98,7 +98,7 @@ function anchorScroller(els, opts) {
         }
 
         time++;
-        tweened = options.easingEquation(time, 0, options.scrollOffset, frames);
+        tweened = options.easingEquation(time, 0, options.distance, frames);
         scrollingElement.scrollTop = offsetScrollTop + (tweened * direction);
 
         if (time < frames) {
@@ -112,7 +112,7 @@ function anchorScroller(els, opts) {
         target = getTargetElement(this);
         targetScrollTop = getElementScrollTop(target);
         direction = getDirection(scrollingElement.scrollTop, targetScrollTop);
-        offsetScrollTop = targetScrollTop - (options.scrollOffset * direction);
+        offsetScrollTop = targetScrollTop - (options.distance * direction);
 
         snap(offsetScrollTop);
         scroll(true);
