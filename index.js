@@ -111,6 +111,11 @@ function anchorScroller(els, opts) {
 
     var initializeScroll = function(e) {
         target = getTargetElement(this);
+
+        if (!target) {
+            return;
+        }
+
         targetScrollTop = getElementScrollTop(target) + options.offset;
         direction = getDirection(scrollingElement.scrollTop, targetScrollTop);
         offsetScrollTop = targetScrollTop - (options.distance * direction);
