@@ -109,8 +109,8 @@ function anchorScroller(els, opts) {
         }
     };
 
-    var initializeScroll = function(e) {
-        target = getTargetElement(this);
+    var initializeScroll = function(e, target) {
+        target = target || getTargetElement(this);
 
         if (!target) {
             return;
@@ -123,7 +123,9 @@ function anchorScroller(els, opts) {
         snap(offsetScrollTop);
         scroll(true);
 
-        e.preventDefault();
+        if (e) {
+            e.preventDefault();
+        }
     };
 
     var addEventListeners = function() {
@@ -133,6 +135,8 @@ function anchorScroller(els, opts) {
     };
 
     addEventListeners();
+
+    return initializeScroll;
 }
 
 module.exports = anchorScroller;
