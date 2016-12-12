@@ -11,6 +11,13 @@ anchorScroller(document.querySelectorAll('.elements'), {
 });
 ```
 
+or you can trigger it programmatically
+
+```javascript
+var anchorScroller = require('anchorscroller')([], /* options */);
+anchorScroller(document.querySelector('#element-to-scroll-to'));
+```
+
 ### Settings
 ```javascript
 duration: The duration of the scroll animation in milliseconds (defaults to 200).
