@@ -12,7 +12,13 @@ var scrollingElement = document.scrollingElement;
  * @returns {Number}
  */
 var getDirection = function(currentScrollTop, targetScrollTop) {
-    return (currentScrollTop <= targetScrollTop) ? 1 : -1;
+    if (currentScrollTop < targetScrollTop) {
+        return 1;
+    } else if (currentScrollTop > targetScrollTop) {
+        return -1;
+    } else {
+        return false;
+    }
 };
 
 /**
@@ -120,8 +126,10 @@ function anchorScroller(els, opts) {
         direction = getDirection(scrollingElement.scrollTop, targetScrollTop);
         offsetScrollTop = targetScrollTop - (options.distance * direction);
 
-        snap(offsetScrollTop);
-        scroll(true);
+        if (direction) {
+            snap(offsetScrollTop);
+            scroll(true);
+        }
 
         if (e) {
             e.preventDefault();
